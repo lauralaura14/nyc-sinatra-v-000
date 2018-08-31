@@ -10,10 +10,8 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    @landmark = Landmark.create(:name => params["Name"])
-    @landmark.title = Title.find(:name => params["Title Name"])
-    @landmark.title_id = params[:titles]
-    @landmark.save
+    @landmark = Landmark.create(params[:name])
+
     redirect to("/landmarks/#{@landmark.id}")
   end
 
